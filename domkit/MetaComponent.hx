@@ -359,7 +359,7 @@ class MetaComponent extends Component<Dynamic,Dynamic> {
 
 	function getCompName( c : ClassType, opt = false ) {
 		var name = c.meta.extract(":uiComp")[0];
-		if( name == null ) return c.meta.has(":uiNoComponent") || (opt && c.pack[0] == "h2d") ? null : CssParser.haxeToCss(c.name);
+		if( name == null ) return c.meta.has(":uiNoComponent") || (opt /* && c.pack[0] == "h2d" */ ) ? null : CssParser.haxeToCss(c.name);
 		if( name.params.length == 0 ) error("Invalid :uiComp", name.pos);
 		return switch( name.params[0].expr ) {
 		case EConst(CString(name)): name;
